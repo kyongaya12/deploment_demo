@@ -1,30 +1,28 @@
 import './App.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
+import Layout from "./pages/Layout";
 import Home from "./pages/Home";
-import Menu from './pages/Menu';
-import About from "./pages/About";
+import Blogs from "./pages/Blogs";
 import Contact from "./pages/Contact";
-
+import NoPage from "./pages/NoPage";
 
 function App() {
   return (
     <div className="App">
-      <h1>Hello</h1>    <Navbar />
+      <h1>Hello</h1>  
      <BrowserRouter>
 
     <Routes>
-        <Route path="/" element={<Navbar />}>
+        <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="Menu" element={<Menu />} />
-          <Route path="About" element={<About />} />
-          <Route path="Contact" element={<Contact />} />
+          <Route path="blogs" element={<Blogs />} />
+          <Route path="contact" element={<Contact />} />
+          <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>
 
      </BrowserRouter>
-     <Footer />
+  
     </div>
   );
 }
